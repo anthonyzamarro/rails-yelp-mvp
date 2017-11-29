@@ -1,20 +1,23 @@
-<!-- <div class="container">
-  <div class="row">
-    <div class="col-sm-12"> -->
+<div class="container">
+  <div class="row show">
+    <div class="col-sm-12">
+      <div class="restaurant-info">
       <h1><%= @restaurant.name %></h1>
-      <h4>Category: <%= @restaurant.category %></h4>
+        <h4>Category: <%= @restaurant.category %></h4>
 
 
-      <p><strong>Address:</strong> <%= @restaurant.address %></p>
-      <p><strong>Phone number:</strong> <%= @restaurant.phone_number %></p>
-
+        <p><strong>Address:</strong> <%= @restaurant.address %></p>
+        <p><strong>Phone number:</strong> <%= @restaurant.phone_number %></p>
+      </div>
+      <h2 class="text-center">Reviews</h2>
+      <div class="review-display">
         <% @restaurant.reviews.each do |review| %>
           <p> User review: <%= review.content %></p>
           <p> User rating: <%= review.rating %></p>
         <% end %>
+      </div>
 
-
-      <h1>Write a review</h1>
+      <h3>Write a review</h3>
       <%= simple_form_for [@restaurant, @review] do |f| %>
         <%= f.input :content %>
         <%= f.input :rating %>
@@ -22,10 +25,10 @@
       <% end %>
 
 
-
-      <p><%= link_to "Go back", root_path %></p>
-      <p><%= link_to "Click on review", new_restaurant_review_path(@restaurant) %></p>
-      <p><%= link_to "Delete Restaurant", restaurant_path(@restaurant), method: :delete %></p>
-  <!--   </div>
+    <div class="options">
+      <p class=""><%= link_to "Back to restaurant list", root_path %></p>
+      <button class="btn btn-danger"><%= link_to "Delete Restaurant", restaurant_path(@restaurant), method: :delete %></button>
+      </div>
+    </div>
   </div>
-</div> -->
+</div>
