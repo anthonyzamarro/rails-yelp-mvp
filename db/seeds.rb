@@ -5,3 +5,16 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+puts "Starting seed"
+
+Restaurant.destroy_all
+
+cat = ["chinese", "italian", "japanese", "french", "belgian"]
+
+5.times do |resto|
+  resto = Restaurant.new(name: Faker::StarWars.character, address: Faker::Address.street_address, phone_number: Faker::PhoneNumber.phone_number, category: cat.sample)
+  p "Name: #{resto.name}, Address: #{resto.address}, Phone: #{resto.phone_number}, Category: #{resto.category}"
+  resto.save!
+end
+
+puts "Seeding complete"
